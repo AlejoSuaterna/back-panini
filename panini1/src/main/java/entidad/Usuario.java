@@ -18,7 +18,7 @@ public class Usuario {
     String apellido;
     ArrayList<Mona> monas;
 
-    public Usuario(String user, int id, String password, String nombre, String apellido, ArrayList<Mona> monas) {
+    public Usuario( int id, String user, String password, String nombre, String apellido, ArrayList<Mona> monas) {
         this.user = user;
         this.id = id;
         this.password = password;

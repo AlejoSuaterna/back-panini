@@ -4,8 +4,11 @@
  */
 package net.co.go;
 
+import entidad.Logica;
+import entidad.Mona;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -53,10 +56,14 @@ public class newServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String equipo=request.getParameter("equipo");
+                System.out.println(equipo);
+		Logica l=new Logica();
+		ArrayList<Mona> res = l.traerInfo(equipo);
+		PrintWriter out=response.getWriter();
+		out.println(res);	
+	}
 
     /**
      * Handles the HTTP <code>POST</code> method.
